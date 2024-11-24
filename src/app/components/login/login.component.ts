@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
   getToken() {
     this.tokenApi = {
-      username: "user",
+      username: "0",
       password: "abc123"
     };
     this.commonService.post(`${environment.apiAuthUrl}/login`, this.tokenApi).subscribe((res: Token) => {

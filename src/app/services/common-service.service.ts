@@ -56,7 +56,7 @@ export class CommonServiceService {
         if(!resp.respuestaExitosa){
           this.pintarError(resp.mensaje)
         }
-        if(resp.mensaje.){
+        if(resp.mensaje){
           this.alertService.mostrarAlertaTipoToast(ALERTA_TIPO.OK, resp.mensaje)
         }
         return resp
