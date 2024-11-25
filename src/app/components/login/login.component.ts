@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 export class LoginComponent implements OnInit {
   tokenApi: TokenApi = new TokenApi();
   token: Token = new Token();
+  vuelos: any
 
   constructor(private commonService: CommonServiceService, 
               private alertService: AlertServiceService) {}
@@ -28,12 +29,20 @@ export class LoginComponent implements OnInit {
       username: "0",
       password: "abc123"
     };
-    this.commonService.post(`${environment.apiAuthUrl}/login`, this.tokenApi).subscribe((res: Token) => {
+
+    this.commonService.post(`${environment.apiAuthUrl.login}`, this.tokenApi).subscribe((res: Token) => {
       this.token = res;
       sessionStorage.setItem('AccessToken', this.token.token);
 
-      //Log
       console.log('Token: ' + this.token.token);
     });
+  }
+
+  getVuelos(){
+    this.commonService.getAll(`${environment.apivueloUrl.crud}`).subscribe((res: any) => {
+      this.vuelos = res.data
+      console.log("Vuelos " + res.data)
+      console.log(this.vuelos[1])
+    })
   }
 }
