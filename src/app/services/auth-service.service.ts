@@ -24,11 +24,13 @@ export class AuthServiceService {
   getToken(tokenApi: TokenApi) {
     this.commonService.post(`${environment.apiAuthUrl}/login`, tokenApi).subscribe((res: Token) => {
       sessionStorage.setItem('AccessToken', res.token);
+      sessionStorage.setItem('User', tokenApi.username);
     });
   }
 
   getAccessToken(): string | null {
     return sessionStorage.getItem('AccessToken');
+
   }
 }
 

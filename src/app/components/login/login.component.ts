@@ -6,12 +6,13 @@ import { AlertServiceService } from '../../common/generalServices/alert-service.
 import { environment } from '../../environments/environments';
 import { HttpClientModule } from '@angular/common/http';
 import { ALERTA_TIPO } from '../../common/conts/alerts/sweetAlertConsts';
+import { NavbarComponent } from '../../common/navbar/navbar.component';
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [HttpClientModule],
+  imports: [HttpClientModule, NavbarComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
