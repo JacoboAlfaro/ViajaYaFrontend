@@ -1,0 +1,106 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-4">
+  <div class="row">
+    <!-- Menú lateral -->
+    <div class="col-md-3">
+      <div class="list-group">
+        <a
+          class="list-group-item list-group-item-action"
+          (click)="showSection('datosPersonales')"
+          [class.active]="currentSection === 'datosPersonales'">
+          Datos personales
+        </a>
+        <a
+          class="list-group-item list-group-item-action"
+          (click)="showSection('opiniones')"
+          [class.active]="currentSection === 'opiniones'">
+          Opiniones
+        </a>
+        <a
+          class="list-group-item list-group-item-action text-danger"
+          (click)="logout()">
+          Cerrar sesión
+        </a>
+      </div>
+    </div>
+    <!-- Contenido principal -->
+    <div class="col-md-9">
+      <ng-container [ngSwitch]="currentSection">
+        <!-- Sección de Datos Personales -->
+        <div *ngSwitchCase="'datosPersonales'">
+          <!-- Encabezado de perfil -->
+          <div class="card mb-4">
+            <div class="card-body d-flex align-items-center bg-violet">
+              <div class="me-3">
+                <div class="rounded-circle bg-secondary text-white d-flex justify-content-center align-items-center" style="width: 60px; height: 60px;">
+                  <i class="bi bi-person fs-3"></i>
+                </div>
+              </div>
+            <div class="text-light">
+              <h5 class="mb-0">{{dataUser.nombre}}</h5>
+              <p class="mb-0">{{dataUser.correoElectronico}}</p>
+            </div>
+            <button class="btn btn-light   border-light   ms-auto">Editar</button>
+          </div>
+
+
+        <div class="col-md-15">
+          <div class="card">
+            <div class="card-body d-flex align-items-center">
+              <div class="me-3 ms-3">
+                <div class="rounded-circle border border-dark d-flex justify-content-center align-items-center" style="width: 30px; height: 30px;">
+                  <i class="bi bi-person-fill text-violet fs-8"></i>
+                </div>
+              </div>
+              <div>
+                <h6 class="mb-0 text-muted">Nombre</h6>
+                <p class="mb-0">{{dataUser.nombre}}</p>
+              </div>
+              <div class="me-3 ms-auto">
+                <div class="rounded-circle border border-dark d-flex justify-content-center align-items-center ml-54515616515" style="width: 30px; height: 30px;">
+                  <i class="bi bi-envelope-fill text-violet fs-8"></i>
+                </div>
+              </div>
+              <div class="">
+                <h6 class="mb-0  text-muted">Email</h6>
+                <p class="mb-0">{{dataUser.correoElectronico}}</p>
+              </div>
+              <div class="me-3 ms-auto">
+                <div class="rounded-circle border border-dark d-flex justify-content-center align-items-center ml-54515616515" style="width: 30px; height: 30px;">
+                  <i class="bi bi-geo-alt-fill text-violet fs-8"></i>
+                </div>
+              </div>
+              <div class="me-5">
+                <h6 class="mb-0 text-muted">Dirección</h6>
+                <p class="mb-0">{{dataUser.direccion}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <!-- Sección de Opiniones -->
+        <div *ngSwitchCase="'opiniones'">
+          <h5>Opiniones</h5>
+          <div class="card">
+            <div class="card-body">
+              <p>Aquí puedes gestionar tus opiniones.</p>
+              <!-- Contenido dinámico de opiniones -->
+              <ul>
+                <li>Opinión 1: Excelente servicio</li>
+                <li>Opinión 2: Recomendado 100%</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Default (o mensaje cuando no hay sección seleccionada) -->
+        <div *ngSwitchDefault>
+          <p>Selecciona una opción del menú para ver los detalles.</p>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

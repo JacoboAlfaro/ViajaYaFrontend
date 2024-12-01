@@ -55,7 +55,25 @@ a:hover {
 }
 
 
+img{
+  object-fit: cover;
+  margin-right: 10px;
+}
 
 
-
-
+.active {
+  margin-bottom: -7px;
+  border-bottom: 1px solid #824cf6c9;
+  font-weight: bold;
+  color: #824cf6c9;
+  i{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e9ecef;
+    border-radius: 100%;
+    background-color: #824cf6c9;
+    width: 50px;
+    height: 50px;
+  }
+}

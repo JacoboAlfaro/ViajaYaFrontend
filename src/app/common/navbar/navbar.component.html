@@ -1,5 +1,12 @@
 <nav class="navbar bg-light">
   <div class="container">
+    <!-- Inicio -->
+    <a  class="img" href="#">
+      <div class="nav-icon-text">
+        <img src="assets/img/logo.png" alt="logo" />
+        <span>Inicio</span>
+      </div>
+    </a>
     <!-- Alojamientos -->
     <a class="navbar" href="#">
       <div class="nav-icon-text">
@@ -8,7 +15,7 @@
       </div>
     </a>
     <!-- Vuelos -->
-    <a class="navbar" href="#">
+    <a class="navbar"  (click)="navigateTo('/vuelos')">
       <div class="nav-icon-text">
         <i class="bi bi-airplane"></i>
         <span>Vuelos</span>
@@ -21,7 +28,11 @@
         <span>Paquetes</span>
       </div>
     </a>
-    <div class="user-container">
+    <div class="user-container" *ngIf="this.cuenta == false" (click)="navigateTo('/login')">
+      <i class="bi bi-person-circle"></i>
+      <span>{{this.user}}</span>
+    </div>
+    <div class="user-container" *ngIf="this.cuenta == true" (click)="navigateTo('/cuenta')">
       <i class="bi bi-person-circle"></i>
       <span>{{this.user}}</span>
     </div>

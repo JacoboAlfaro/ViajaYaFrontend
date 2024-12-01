@@ -1,2 +1,14 @@
 @import url("../../../styles.css");
 
+.container {
+  margin-top: 50px;
+}
+
+.card {
+  border: none;
+}
+
+.card-footer {
+  background-color: transparent;
+
+}
