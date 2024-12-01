@@ -1,1 +1,35 @@
-<p>cuenta-reservas works!</p>
+<div class="container mt-4">
+  <div class="row">
+    <div *ngFor="let reserva of reservas" class="col-md-4 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Reserva ID: {{ reserva.id }}</h5>
+          <p class="card-text"><strong>Fecha de Reserva:</strong> {{ reserva.fechaReserva | date: 'dd/MM/yyyy' }}</p>
+          <p class="card-text"><strong>Estado:</strong> {{ reserva.estado ? 'En curso' : 'Finalizada' }}</p>
+          <p class="card-text"><strong>Detalle:</strong> {{ reserva.detalleReserva }}</p>
+
+          <div *ngIf="reserva.hoteles.length > 0">
+            <h6 class="card-subtitle mb-2 text-muted">Hoteles:</h6>
+            <ul>
+              <li *ngFor="let hotel of reserva.hoteles">{{ hotel.nombreHotel }}</li>
+            </ul>
+          </div>
+
+          <div *ngIf="reserva.paquetes.length > 0">
+            <h6 class="card-subtitle mb-2 text-muted">Paquetes:</h6>
+            <ul>
+              <li *ngFor="let paquete of reserva.paquetes">{{ paquete.nombre }}</li>
+            </ul>
+          </div>
+
+          <div *ngIf="reserva.vuelos.length > 0">
+            <h6 class="card-subtitle mb-2 text-muted">Vuelos:</h6>
+            <ul>
+              <li *ngFor="let vuelo of reserva.vuelos">{{ vuelo.numero }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
