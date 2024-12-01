@@ -24,10 +24,7 @@ export class CommonServiceService {
             this.pintarError(resp.mensaje);
           }
 
-          this.alertService.mostrarAlertaTipoToast(
-            ALERTA_TIPO.OK,
-            resp.mensaje
-          );
+          // this.alertService.mostrarAlertaTipoToast(ALERTA_TIPO.OK, resp.mensaje);
 
           return resp;
         }),
@@ -48,7 +45,7 @@ export class CommonServiceService {
         if (!resp.respuestaExitosa) {
           this.pintarError(resp.mensaje);
         }
-        this.alertService.mostrarAlertaTipoToast(ALERTA_TIPO.OK, resp.mensaje);
+        // this.alertService.mostrarAlertaTipoToast(ALERTA_TIPO.OK, resp.mensaje);
         return resp.data;
       }),
       catchError((err) => {
@@ -66,10 +63,7 @@ export class CommonServiceService {
           this.pintarError(resp.mensaje);
         }
         if (resp.mensaje) {
-          this.alertService.mostrarAlertaTipoToast(
-            ALERTA_TIPO.OK,
-            resp.mensaje
-          );
+          // this.alertService.mostrarAlertaTipoToast(ALERTA_TIPO.OK, resp.mensaje);
         }
         return resp;
       }),
@@ -87,7 +81,7 @@ export class CommonServiceService {
         if (!resp.respuestaExitosa) {
           this.pintarError(resp.mensaje);
         }
-        this.alertService.mostrarAlertaTipoToast(ALERTA_TIPO.OK, resp.mensaje);
+        // this.alertService.mostrarAlertaTipoToast(ALERTA_TIPO.OK, resp.mensaje);
         return resp;
       }),
       catchError((err) => {
@@ -104,7 +98,7 @@ export class CommonServiceService {
         if (!resp.respuestaExitosa) {
           this.pintarError(resp.mensaje);
         }
-        this.alertService.mostrarAlertaTipoToast(ALERTA_TIPO.OK, resp.mensaje);
+        // this.alertService.mostrarAlertaTipoToast(ALERTA_TIPO.OK, resp.mensaje);
         return resp;
       }),
       catchError((err) => {
@@ -121,7 +115,7 @@ export class CommonServiceService {
         if (!resp.respuestaExitosa) {
           this.pintarError(resp.mensaje);
         }
-        this.alertService.mostrarAlertaTipoToast(ALERTA_TIPO.OK, resp.mensaje);
+        // this.alertService.mostrarAlertaTipoToast(ALERTA_TIPO.OK, resp.mensaje);
         return resp;
       }),
       catchError((err) => {

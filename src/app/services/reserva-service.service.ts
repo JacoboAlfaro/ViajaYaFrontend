@@ -14,7 +14,7 @@ export class ReservaServiceService {
     private commonService: CommonServiceService,) { }
 
   getReservaUsuario(id: string) {
-    this.commonService.getAll(`${this.reserUrl}/usuario/${id}`, { headers: this.headers }).subscribe(
+    this.commonService.getAll(`${this.reserUrl}/usuario/${id}`).subscribe(
       (res: any) => {
         console.log('Reserva obtenida:', res);
       },
