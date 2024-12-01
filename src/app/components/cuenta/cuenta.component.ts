@@ -4,11 +4,13 @@ import { Router } from '@angular/router';
 import { AuthServiceService } from '../../services/auth-service.service';
 import { Datauser } from '../../models/datauserModel';
 import { CommonModule } from '@angular/common';
+import { CuentaOpinionesComponent } from "./cuenta-opiniones/cuenta-opiniones.component";
+import { CuentaReservasComponent } from "./cuenta-reservas/cuenta-reservas.component";
 
 @Component({
   selector: 'app-cuenta',
   standalone: true,
-  imports: [NavbarComponent, CommonModule],
+  imports: [NavbarComponent, CommonModule, CuentaOpinionesComponent, CuentaReservasComponent],
   templateUrl: './cuenta.component.html',
   styleUrl: './cuenta.component.css'
 })

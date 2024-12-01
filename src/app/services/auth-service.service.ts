@@ -5,6 +5,7 @@ import { environment } from '../environments/environments';
 import { AlertServiceService } from '../common/generalServices/alert-service.service';
 import { CommonServiceService } from './common-service.service';
 import { get } from 'node:http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +16,15 @@ export class AuthServiceService {
   private token: string | null = null;
 
   constructor(private http: HttpClient
-    , private alertService: AlertServiceService,
-    private commonService: CommonServiceService
+    ,private alertService: AlertServiceService,
+    private commonService: CommonServiceService,
+    private router: Router
   ) {}
+
+  navigateTo(route: string): void {
+    this.router.navigate([route]);
+  }
+
 
   login(user: any) {
     return this.http.post(`${this.authUrl}/login`, user);
@@ -44,12 +51,23 @@ export class AuthServiceService {
           console.error('Error obteniendo el usuario:', error);
         }
       );
+      if (token) {
+      setTimeout(() => {
+        this.navigateTo('/vuelos');
+      }, 1000);
+    }
   }
 
   getToken(tokenApi: TokenApi) {
     this.commonService.post(`${this.authUrl}/login`, tokenApi).subscribe((res: Token) => {
+      if (!res.token) {
+        console.error('No se recibió token');
+        return;
+      }
+      else {
       sessionStorage.setItem('AccessToken', res.token);
       this.getUser(tokenApi);
+      }
     });
   }
 

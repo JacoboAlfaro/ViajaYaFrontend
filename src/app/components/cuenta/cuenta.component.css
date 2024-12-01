@@ -5,3 +5,15 @@
 .bg-violet{
     background-color: #270570;
 }
+
+.list-group-item {
+  cursor: pointer;
+}
+
+
+.list-group-item.active {
+  background-color: #551A8B;
+  color: #fff;
+  font-weight: 600;
+  border-color: #551A8B;
+}

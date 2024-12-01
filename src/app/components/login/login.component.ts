@@ -32,13 +32,9 @@ export class LoginComponent implements OnInit {
   constructor(private commonService: CommonServiceService,
               private alertService: AlertServiceService,
               private authService: AuthServiceService,
-              private router: Router) {}
+            ) {}
 
   ngOnInit(): void {
-  }
-
-  navigateTo(route: string): void {
-    this.router.navigate([route]);
   }
 
   getToken() {
@@ -49,11 +45,6 @@ export class LoginComponent implements OnInit {
     this.authService.getToken(this.tokenApi);
     const token = this.authService.getAccessToken();
     console.log('Token almacenado en sessionStorage:', token);
-    if (token !== undefined) {
-      setTimeout(() => {
-        this.navigateTo('/vuelos');
-      }, 2000);
-    }
   }
 
 }
