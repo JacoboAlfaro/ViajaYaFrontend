@@ -15,10 +15,9 @@ export class ReservaServiceService {
   constructor(private http: HttpClient,
     private commonService: CommonServiceService,) { }
 
-  // Modificar el método para devolver las reservas
-  getReservaUsuario(id: string): void {
+  getReservaUsuario(id: string) {
     this.commonService.getAll(`${this.reserUrl}/usuario/${id}`).subscribe(
-      (res: any) => {  // 'res' es la respuesta completa de la API
+      (res: any) => {
         console.log('Reserva obtenida:', res);
         if (res.respuestaExitosa && res.data) {
           this.reservas = res.data; // Asignamos las reservas desde 'data'
