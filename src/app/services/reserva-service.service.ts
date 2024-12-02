@@ -9,7 +9,6 @@ import { Reserva } from '../models/reservaModel';
 })
 export class ReservaServiceService {
   reserUrl = environment.apireservaUrl;
-  // headers = new HttpHeaders().set('Authorization', `Bearer ${sessionStorage.getItem('AccessToken')}`);
   reservas: Reserva[] = [];
 
   constructor(private http: HttpClient,

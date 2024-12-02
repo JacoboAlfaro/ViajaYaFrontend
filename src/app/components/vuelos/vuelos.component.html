@@ -1,2 +1,52 @@
 <app-navbar></app-navbar>
-<p>vuelos works!</p>
+
+<div class="filter-container">
+  <!-- Precio Mínimo -->
+  <div class="filter-item">
+    <span class="filter-label">Precio Mínimo</span>
+    <input id="precioMin" type="number" [(ngModel)]="precioMin" class="filter-input" placeholder="$0">
+  </div>
+
+  <!-- Precio Máximo -->
+  <div class="filter-item">
+    <span class="filter-label">Precio Máximo</span>
+    <input id="precioMax" type="number" [(ngModel)]="precioMax" class="filter-input" placeholder="$1000">
+  </div>
+
+  <!-- Fecha Desde -->
+  <div class="filter-item">
+    <span class="filter-label">Fecha de Salida</span>
+    <input id="fechaDesde" type="date" [(ngModel)]="fechaDesde" class="filter-input">
+  </div>
+
+  <!-- Botón de búsqueda -->
+  <button class="search-button bi bi-search" (click)="buscarPorFiltros()">Buscar Vuelos</button>
+
+</div>
+
+
+
+<div class="container mt-4">
+  <!-- Resultados -->
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let vuelo of vuelos">
+      <div class="card flight-card" (click)="getVuelo(vuelo.id)">
+        <img
+          src="https://img.static-af.com/images/media/E56219E9-21C7-4BB0-B7A5F5353A5140D3/"
+          alt="Imagen del vuelo"
+          class="card-img-top flight-image">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ vuelo.aerolinea }}</h5>
+          <p class="card-text text-center">
+            <strong>Origen:</strong> {{ vuelo.origen }}<br>
+            <strong>Destino:</strong> {{ vuelo.destino }}<br>
+            <strong>Precio:</strong> ${{ vuelo.precio }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="vuelos.length === 0" class="col-12 text-center">
+      <p>No se encontraron vuelos con los criterios seleccionados.</p>
+    </div>
+  </div>
+</div>

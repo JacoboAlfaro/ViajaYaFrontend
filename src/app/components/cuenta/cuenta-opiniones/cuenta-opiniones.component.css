@@ -1,0 +1,45 @@
+.opiniones-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.opinion-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.opinion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.opinion-date {
+  font-size: 14px;
+  color: #666;
+}
+
+.opinion-rating {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.opinion-body {
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: #444;
+}
+
+.opinion-footer {
+  font-size: 12px;
+  color: #888;
+}

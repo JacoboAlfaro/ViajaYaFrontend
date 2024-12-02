@@ -6,11 +6,12 @@ import { Datauser } from '../../models/datauserModel';
 import { CommonModule } from '@angular/common';
 import { CuentaOpinionesComponent } from "./cuenta-opiniones/cuenta-opiniones.component";
 import { CuentaReservasComponent } from "./cuenta-reservas/cuenta-reservas.component";
+import { CuentaFacturasComponent } from "./cuenta-facturas/cuenta-facturas.component";
 
 @Component({
   selector: 'app-cuenta',
   standalone: true,
-  imports: [NavbarComponent, CommonModule, CuentaOpinionesComponent, CuentaReservasComponent],
+  imports: [NavbarComponent, CommonModule, CuentaOpinionesComponent, CuentaReservasComponent, CuentaFacturasComponent],
   templateUrl: './cuenta.component.html',
   styleUrl: './cuenta.component.css'
 })

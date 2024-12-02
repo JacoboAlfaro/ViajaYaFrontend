@@ -1,0 +1,48 @@
+.opiniones-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.opinion-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease; /* Suaviza la transición de color */
+}
+
+.opinion-header {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.opinion-body {
+  margin-bottom: 10px;
+}
+
+.estado-aceptado {
+  background-color: #e8f5e9;  /* Fondo verde claro */
+  color: green;
+}
+
+.estado-pendiente {
+  background-color: #fff3e0;  /* Fondo amarillo claro */
+  color: rgb(145, 94, 0);
+}
+
+.estado-rechazado {
+  background-color: #ffebee;  /* Fondo rojo claro */
+  color: red;
+}
+
+.btn-p{
+  background-color: #4300D4;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}

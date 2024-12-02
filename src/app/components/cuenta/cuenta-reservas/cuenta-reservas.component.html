@@ -1,32 +1,123 @@
 <div class="container mt-4">
   <div class="row">
     <div *ngFor="let reserva of reservas" class="col-md-4 mb-4">
-      <div class="card">
+      <div class="card" [ngClass]="{ 'bg-soft-red': !reserva.estado }">
         <div class="card-body">
           <h5 class="card-title">Reserva ID: {{ reserva.id }}</h5>
-          <p class="card-text"><strong>Fecha de Reserva:</strong> {{ reserva.fechaReserva | date: 'dd/MM/yyyy' }}</p>
-          <p class="card-text"><strong>Estado:</strong> {{ reserva.estado ? 'En curso' : 'Finalizada' }}</p>
-          <p class="card-text"><strong>Detalle:</strong> {{ reserva.detalleReserva }}</p>
+          <p class="card-text">
+            <strong>Fecha de Reserva:</strong>
+            {{ reserva.fechaReserva | date : "dd/MM/yyyy" }}
+          </p>
+          <p class="card-text">
+            <strong>Estado:</strong>
+            {{ reserva.estado ? "En curso" : "Finalizada" }}
+          </p>
+          <p class="card-text">
+            <strong>Detalle:</strong> {{ reserva.detalleReserva }}
+          </p>
 
           <div *ngIf="reserva.hoteles.length > 0">
             <h6 class="card-subtitle mb-2 text-muted">Hoteles:</h6>
             <ul>
-              <li *ngFor="let hotel of reserva.hoteles">{{ hotel.nombreHotel }}</li>
+              <li *ngFor="let hotel of reserva.hoteles">
+                País: {{ hotel.pais }}
+              </li>
+              <li *ngFor="let hotel of reserva.hoteles">
+                Ciudad: {{ hotel.ciudad }}
+              </li>
+              <li *ngFor="let hotel of reserva.hoteles">
+                Dirección: {{ hotel.direccion }}
+              </li>
+              <li *ngFor="let hotel of reserva.hoteles">
+                Nombre: {{ hotel.nombreHotel }}
+              </li>
+              <li *ngFor="let hotel of reserva.hoteles">
+                Estrellas: {{ hotel.numEstrellas }}
+              </li>
+              <li *ngFor="let hotel of reserva.hoteles">
+                Precio Noche: {{ hotel.precioNoche }}
+              </li>
+              <li *ngFor="let hotel of reserva.hoteles">
+                Habitación: {{ hotel.tipoHabitacion }}
+              </li>
             </ul>
-          </div>
+            <div *ngFor="let hotel of reserva.hoteles">
+              <div *ngIf="hotel.serviciosAdicionales.length > 0">
+                <h6 class="card-subtitle mb-2 text-muted">
+                  Servicios adicionales:
+                </h6>
+                <ul *ngFor="let hotel of reserva.hoteles">
+                  <li *ngFor="let servicio of hotel.serviciosAdicionales">
+                    Nombre: {{ servicio.nombreServicio }}
+                  </li>
+                  <li *ngFor="let servicio of hotel.serviciosAdicionales">
+                    Categoría: {{ servicio.categoriaServicio }}
+                  </li>
+                  <li *ngFor="let servicio of hotel.serviciosAdicionales">
+                    Descripción: {{ servicio.descripcion }}
+                  </li>
+                  <li *ngFor="let servicio of hotel.serviciosAdicionales">
+                    Precio: {{ servicio.precio }}
+                  </li>
+                </ul>
+              </div>
+            </div>
 
-          <div *ngIf="reserva.paquetes.length > 0">
-            <h6 class="card-subtitle mb-2 text-muted">Paquetes:</h6>
-            <ul>
-              <li *ngFor="let paquete of reserva.paquetes">{{ paquete.nombre }}</li>
-            </ul>
-          </div>
+            <div *ngIf="reserva.paquetes.length > 0">
+              <h6 class="card-subtitle mb-2 text-muted">Paquetes:</h6>
+              <ul>
+                <li *ngFor="let paquete of reserva.paquetes">
+                  Nombre: {{ paquete.nombrePaquete }}
+                </li>
+                <li *ngFor="let paquete of reserva.paquetes">
+                  Destino: {{ paquete.destino }}
+                </li>
+                <li *ngFor="let paquete of reserva.paquetes">
+                  Precio: {{ paquete.precio }}
+                </li>
+                <li *ngFor="let paquete of reserva.paquetes">
+                  Fecha de Salida: {{ paquete.fechaSalida | date : "dd/MM/yyyy" }}
+                </li>
+                <li *ngFor="let paquete of reserva.paquetes">
+                  Servicio Incluido: {{ paquete.serviciosIncluidos }}
+                </li>
+              </ul>
+            </div>
 
-          <div *ngIf="reserva.vuelos.length > 0">
-            <h6 class="card-subtitle mb-2 text-muted">Vuelos:</h6>
-            <ul>
-              <li *ngFor="let vuelo of reserva.vuelos">{{ vuelo.numero }}</li>
-            </ul>
+            <div *ngIf="reserva.vuelos.length > 0">
+              <h6 class="card-subtitle mb-2 text-muted">Vuelos:</h6>
+              <ul>
+                <li *ngFor="let vuelo of reserva.vuelos">Número de Vuelo: {{ vuelo.numVuelo }}</li>
+                <li *ngFor="let vuelo of reserva.vuelos">Aerolinea: {{ vuelo.aerolinea }}</li>
+                <li *ngFor="let vuelo of reserva.vuelos">Origen: {{ vuelo.origen }}</li>
+                <li *ngFor="let vuelo of reserva.vuelos">Destino: {{ vuelo.destino }}</li>
+                <li *ngFor="let vuelo of reserva.vuelos">Fecha de Salida: {{ vuelo.fechaSalida | date : "dd/MM/yyyy" }}</li>
+                <li *ngFor="let vuelo of reserva.vuelos">Precio: {{ vuelo.precio }}</li>
+                <li *ngFor="let vuelo of reserva.vuelos">Escalas: {{ vuelo.numEscalas }}</li>
+                <li *ngFor="let vuelo of reserva.vuelos">Equipaje: {{ vuelo.equipaje ? "Si" : "No" }}</li>
+              </ul>
+              <div *ngFor="let vuelo of reserva.vuelos">
+                <div *ngIf="vuelo.serviciosAdicionales.length > 0">
+                  <h6 class="card-subtitle mb-2 text-muted">
+                    Servicios adicionales:
+                  </h6>
+                  <ul *ngFor="let vuelo of reserva.vuelos">
+                    <li *ngFor="let servicio of vuelo.serviciosAdicionales">
+                      Nombre: {{ servicio.nombreServicio }}
+                    </li>
+                    <li *ngFor="let servicio of vuelo.serviciosAdicionales">
+                      Categoría: {{ servicio.categoriaServicio }}
+                    </li>
+                    <li *ngFor="let servicio of vuelo.serviciosAdicionales">
+                      Descripción: {{ servicio.descripcion }}
+                    </li>
+                    <li *ngFor="let servicio of vuelo.serviciosAdicionales">
+                      Precio: {{ servicio.precio }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

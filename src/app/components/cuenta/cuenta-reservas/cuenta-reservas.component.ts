@@ -26,6 +26,9 @@ export class CuentaReservasComponent {
 
   getReservaUsuario(id: string): void {
     this.reserService.getReservaUsuario(id);
-    this.reservas = this.reserService.obtenerReservas(); // Obtener las reservas
+    setTimeout(() => {
+      this.reservas = this.reserService.obtenerReservas();
+    }, 500);
+
   }
 }

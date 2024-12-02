@@ -21,3 +21,9 @@
   font-size: 1rem;
   margin-bottom: 10px;
 }
+
+.bg-soft-red {
+  background-color: #f8d7da; /* Rojo claro */
+  color: #721c24;           /* Texto en tono rojizo */
+  border: 1px solid #f5c6cb; /* Borde suave */
+}

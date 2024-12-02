@@ -1,0 +1,21 @@
+<div class="opiniones-container">
+  <div class="opinion-card" *ngFor="let factura of facturas" [ngClass]="getEstadoClass(factura.estadoPago)">
+    <div class="opinion-header">
+      <span class="opinion-date">
+        Estado de pago: {{ factura.estadoPago }}
+      </span>
+    </div>
+    <div class="opinion-body">
+      <p> Fecha de pago:  {{ factura.fecha | date: 'dd/MM/yyyy' }}</p>
+    </div>
+    <div class="opinion-body">
+      <span>Metodo de pago: {{ factura.metodoPago }}</span>
+    </div>
+    <div class="opinion-body">
+      <span>Total: {{ factura.total }}</span>
+    </div>
+    <div>
+      <button class="btn btn-p" (click)="descargarFactura(factura.xml)">Descargar factura</button>
+    </div>
+  </div>
+</div>

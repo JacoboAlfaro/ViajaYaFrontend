@@ -1,11 +1,18 @@
-<h5>Opiniones</h5>
-<div class="card">
-  <div class="card-body">
-    <p>Aquí puedes gestionar tus opiniones.</p>
-    <!-- Contenido dinámico de opiniones -->
-    <ul>
-      <li>Opinión 1: Excelente servicio</li>
-      <li>Opinión 2: Recomendado 100%</li>
-    </ul>
+<div class="opiniones-container">
+  <div class="opinion-card" *ngFor="let resenia of resenias">
+    <div class="opinion-header">
+      <span class="opinion-date">
+        {{ resenia.fecha | date: 'dd/MM/yyyy' }}
+      </span>
+      <span class="opinion-rating">
+        Calificación: {{ resenia.calificacion }}/5
+      </span>
+    </div>
+    <div class="opinion-body">
+      <p>{{ resenia.comentario }}</p>
+    </div>
+    <div class="opinion-footer">
+      <span>ID Producto: {{ resenia.idProducto }}</span>
+    </div>
   </div>
 </div>
