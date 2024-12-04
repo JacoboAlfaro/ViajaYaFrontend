@@ -53,7 +53,7 @@ export class OpinionesService {
 
 
   postresenia(resenia: Resenia, idUser: number) {
-    this.commonService.post(`${this.ResenUrl}/${idUser}`, resenia).subscribe(
+    this.commonService.post(`${this.ResenUrl}`, resenia).subscribe(
       (res: any) => {
         if (res.respuestaExitosa && res.data) {
           this.resenias = res.data;
