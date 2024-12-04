@@ -1,0 +1,62 @@
+<app-navbar></app-navbar>
+
+<div class="filter-container">
+  <h1 class="text-light">Alojamientos</h1>
+
+  <!-- Ciudad -->
+  <div class="filter-item">
+    <span class="filter-label">Ciudad</span>
+    <input id="ciudad" type="text" [(ngModel)]="ciudad" class="filter-input" placeholder="Ingrese la ciudad">
+  </div>
+
+  <!-- Precio Mínimo -->
+  <div class="filter-item">
+    <span class="filter-label">Precio Mínimo</span>
+    <input id="precioMin" type="number" [(ngModel)]="precioMin" class="filter-input" placeholder="$0">
+  </div>
+
+  <!-- Precio Máximo -->
+  <div class="filter-item">
+    <span class="filter-label">Precio Máximo</span>
+    <input id="precioMax" type="number" [(ngModel)]="precioMax" class="filter-input" placeholder="$1000">
+  </div>
+
+  <!-- Botón de búsqueda -->
+  <button class="search-button bi bi-search" (click)="buscarPorFiltros()">Buscar Alojamientos</button>
+</div>
+
+
+
+<div class="container mt-4">
+  <!-- Resultados -->
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let hotel of hoteles">
+      <div class="card flight-card" (click)="getHotel(hotel.id)">
+        <img
+          src="https://images.trvl-media.com/lodging/26000000/25190000/25182500/25182437/b2333048.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
+          alt="Imagen del hotel"
+          class="card-img-top flight-image">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ hotel.ciudad }}</h5>
+          <p class="card-text text-center">
+            <strong>País:</strong> {{ hotel.pais }}<br>
+            <strong>Hotel:</strong> {{ hotel.nombreHotel }}<br>
+            <strong>Precio por noche:</strong> ${{ hotel.precioNoche }}<br>
+          </p>
+          <!-- Mostrar estrellas como íconos -->
+          <div *ngIf="hotel.numEstrellas > 0" class="text-center">
+            <strong>Estrellas:  </strong>
+            <ng-container *ngFor="let estrella of [].constructor(hotel.numEstrellas)">
+              <i class="bi bi-star-fill text-warning"></i>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Mensaje si no hay resultados -->
+    <div *ngIf="hoteles.length === 0" class="col-12 text-center">
+      <p>No se encontraron hoteles con los criterios seleccionados.</p>
+    </div>
+  </div>
+</div>
+

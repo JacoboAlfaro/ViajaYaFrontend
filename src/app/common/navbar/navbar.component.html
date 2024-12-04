@@ -1,14 +1,8 @@
 <nav class="navbar bg-light">
   <div class="container">
     <!-- Inicio -->
-    <a  class="img" href="#">
-      <div class="nav-icon-text">
-        <img src="assets/img/logo.png" alt="logo" />
-        <span>Inicio</span>
-      </div>
-    </a>
     <!-- Alojamientos -->
-    <a class="navbar" href="#">
+    <a class="navbar" (click)="navigateTo('/alojamientos')">
       <div class="nav-icon-text">
         <i class="bi bi-house"></i>
         <span>Alojamientos</span>
@@ -22,10 +16,16 @@
       </div>
     </a>
     <!-- Paquetes -->
-    <a class="navbar" href="#">
+    <a class="navbar" (click)="navigateTo('/paquetes')">
       <div class="nav-icon-text">
         <i class="bi bi-suitcase-lg"></i>
         <span>Paquetes</span>
+      </div>
+    </a>
+    <a class="navbar" (click)="navigateTo('/carrito')">
+      <div class="nav-icon-text">
+        <i class="bi bi-cart"></i>
+        <span>Carrito</span>
       </div>
     </a>
     <div class="user-container" *ngIf="this.cuenta == false" (click)="navigateTo('/login')">

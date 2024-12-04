@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Estilos generales */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f4f8;
+  color: #333;
+}
+
+.titulo {
+  font-size: 28px;
+  font-weight: 600;
+  color: #444; /* Un tono gris oscuro suave */
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase; /* Para darle un estilo más profesional */
+  letter-spacing: 1px; /* Espaciado entre letras */
+  background: linear-gradient(90deg, #6c63ff, #b99afc); /* Degradado sutil */
+  -webkit-background-clip: text; /* Solo el texto toma el degradado */
+  background-clip: text; /* Propiedad estándar para compatibilidad */
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* Contenedor principal */
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado del vuelo */
+.flight-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.flight-header h1 {
+  text-align: center;
+  color: #007bff;
+  margin-top: 10px;
+}
+
+.flight-image {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Detalles del vuelo */
+.flight-details p {
+  font-size: 16px;
+  margin: 5px 0;
+  line-height: 1.5;
+}
+
+.flight-details p strong {
+  color: #555;
+}
+
+.flight-details ul {
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+.flight-details ul li {
+  list-style-type: disc;
+}
+
+/* Botón de reserva */
+.book {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  border: none;
+  background: #6c63ff;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.book:hover {
+  background: #4b47c4;
+}
+
+/* Contenedor general */
+.comments-container {
+  max-width:800px; /* Ajustamos el ancho a un tamaño más pequeño */
+  margin: 20px auto; /* Centrado horizontal */
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Alineación del contenido */
+}
+
+
+/* Título de los comentarios */
+.comments-container h2 {
+  font-size: 24px;
+  color: #444;
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 2px solid #6c63ff;
+  padding-bottom: 10px;
+}
+
+/* Tarjeta individual */
+.comment-card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Cabecera del comentario */
+.comment-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.comment-author {
+  font-weight: bold;
+  color: #555;
+}
+
+.comment-date {
+  font-size: 12px;
+  color: #888;
+  margin-left: auto;
+}
+
+/* Texto del comentario */
+.comment-text {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Formulario de comentarios */
+.comment-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  resize: none;
+  height: 100px;
+}
+
+.comment-form button {
+  align-self: flex-end;
+  padding: 10px 20px;
+  border: none;
+  background: #6c63ff;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.comment-form button:hover {
+  background: #4b47c4;
+}
+
+
+/* Estilo para las estrellas de calificación */
+.comment-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.comment-rating .filled {
+  color: #ffd700; /* Estrellas llenas en dorado */
+}
+
+.comment-rating span {
+  color: #ddd; /* Estrellas vacías en gris */
+}
+
+.rating-value {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Estilo para la entrada de calificación */
+.rating-input {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rating-input label {
+  font-weight: bold;
+  color: #444;
+}
+
+.rating-input select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.star-rating {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.star-rating i {
+  font-size: 30px;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.star-rating i.selected {
+  color: #ffc107; /* Color de las estrellas seleccionadas */
+}
+

@@ -1,0 +1,79 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <!-- Detalles del vuelo -->
+  <div class="flight-header">
+    <img
+      src="https://img.freepik.com/foto-gratis/pareja-tiro-medio-mochila_23-2148966592.jpg"
+      alt="Avión"
+      class="flight-image"
+    />
+    <h1 class="titulo">Detalle del Paquete</h1>
+  </div>
+  <div *ngIf="paquete" class="flight-details">
+    <p><strong>Nombre:</strong> {{ paquete.nombrePaquete }}</p>
+    <p><strong>Destino:</strong> {{ paquete.destino }}</p>
+    <p><strong>Servicios incluidos:</strong> {{ paquete.serviciosIncluidos }}</p>
+    <p><strong>Fecha de salida:</strong> {{ paquete.fechaSalida }}</p>
+    <p><strong>Precio:</strong> ${{ paquete.precio }}</p>
+    <div *ngIf="paquete.serviciosAdicionales.length > 0">
+      <h6>Servicios Adicionales</h6>
+      <ul>
+        <li *ngFor="let servicio of paquete.serviciosAdicionales">
+          {{ servicio.nombreServicio }}
+          <br />
+          {{ servicio.categoriaServicio }}
+          <br />
+          {{ servicio.descripcion }}
+        </li>
+      </ul>
+    </div>
+    <button class="book" (click)="guardar(paquete, 'paquete')">Guardar en el carrito</button>
+  </div>
+</div>
+
+<div class="comments-container" *ngIf="resenias.length > 0">
+  <h2>Comentarios</h2>
+  <div class="comment-card" *ngFor="let resenia of resenias">
+    <div class="comment-card">
+      <div class="comment-header">
+        <div
+          class="rounded-circle bg-secondary text-white d-flex justify-content-center align-items-center"
+          alt="Avatar"
+          class="avatar"
+        >
+          <i class="bi bi-person fs-3"></i>
+        </div>
+        <span class="comment-author">{{ resenia.usuario.nombre }}</span>
+        <span class="comment-date">{{ resenia.fecha | date : "short" }}</span>
+      </div>
+      <div class="comment-rating">
+        <span
+          *ngFor="let star of [1, 2, 3, 4, 5]"
+          [class.filled]="star <= resenia.calificacion"
+        >
+          ★
+        </span>
+        <span class="rating-value">({{ resenia.calificacion }}/5)</span>
+      </div>
+      <p class="comment-text">{{ resenia.comentario }}</p>
+    </div>
+  </div>
+</div>
+<div class="comments-container">
+  <div class="star-rating">
+    <i
+      class="bi bi-star-fill"
+      *ngFor="let star of stars; let i = index"
+      [ngClass]="{ selected: i < nuevaCalificacion }"
+      (click)="seleccionarCalificacion(i + 1)"
+    >
+    </i>
+  </div>
+  <div class="comment-form">
+    <textarea
+      placeholder="Escribe tu comentario aquí..."
+      [(ngModel)]="nuevoComentario"
+    ></textarea>
+    <button (click)="enviarResenia()">Enviar</button>
+  </div>
+</div>

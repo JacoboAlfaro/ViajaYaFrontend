@@ -45,7 +45,7 @@ export class AuthServiceService {
       .getAll(`${this.apiUser}/porUsername/${tokenApi.username}`, { headers })
       .subscribe(
         (res: any) => {
-          sessionStorage.setItem('User', JSON.stringify(res.data)); // Almacena el usuario en sessionStorage
+          sessionStorage.setItem('User', JSON.stringify(res.data));
         },
         (error : any) => {
           console.error('Error obteniendo el usuario:', error);

@@ -1,0 +1,109 @@
+/* Estilo para el contenedor del carrito */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Productos en el carrito */
+.producto {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.producto h5 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.producto p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.producto button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.producto button:hover {
+  background-color: #c82333;
+}
+
+/* Total del carrito */
+.total {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #28a745;
+  margin-top: 20px;
+}
+
+/* Mensaje cuando no hay productos en el carrito */
+.noProductos {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+}
+
+/* Estilos generales del botón */
+.reservar button {
+  background-color: #4CAF50; /* Verde, color común para botones de acción */
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px; /* Espaciado dentro del botón */
+  border: none;
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Muestra un cursor de mano */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+}
+
+/* Hover: cambia el color cuando el usuario pasa el mouse */
+.reservar button:hover {
+  background-color: #45a049; /* Un verde más oscuro */
+  transform: scale(1.05); /* Efecto de aumento */
+}
+
+/* Focus: cuando el botón es enfocado (por ejemplo, después de un clic) */
+.reservar button:focus {
+  outline: none; /* Elimina el borde por defecto del foco */
+  box-shadow: 0 0 5px rgba(0, 128, 0, 0.7); /* Agrega una sombra verde */
+}
+
+/* Deshabilitar el botón cuando no se puede hacer la reserva */
+.reservar button:disabled {
+  background-color: #d3d3d3; /* Gris claro */
+  cursor: not-allowed; /* Cursor de prohibido */
+  transform: none; /* Elimina el efecto de aumento */
+}
+
+/* Estilo para el contenedor del botón (opcional) */
+.reservar {
+  text-align: center; /* Centra el botón */
+  margin-top: 20px; /* Espacio arriba */
+}
+
+.mensaje{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}

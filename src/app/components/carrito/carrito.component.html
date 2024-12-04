@@ -1,0 +1,49 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <h2>Carrito de Compras</h2>
+
+  <div *ngIf="vuelos.length > 0">
+    <h3>Vuelos</h3>
+    <div *ngFor="let vuelo of vuelos; let i = index" class="producto">
+      <h5>{{ vuelo.numVuelo }} - {{ vuelo.aerolinea }}</h5>
+      <p>Origen: {{ vuelo.origen }} - Destino: {{ vuelo.destino }}</p>
+      <p>Fecha de Salida: {{ vuelo.fechaHoraSalida }}</p>
+      <p>Precio: ${{ vuelo.precio }}</p>
+      <button (click)="eliminarProducto(i, 'vuelo')">Eliminar</button>
+    </div>
+  </div>
+
+  <div *ngIf="hoteles.length > 0">
+    <h3>Hoteles</h3>
+    <div *ngFor="let hotel of hoteles; let i = index" class="producto">
+      <h5>{{ hotel.nombreHotel }}</h5>
+      <p>Ubicación: {{ hotel.ciudad }}</p>
+      <p>Precio: ${{ hotel.precioNoche }}</p>
+      <button (click)="eliminarProducto(i, 'hotel')">Eliminar</button>
+    </div>
+  </div>
+
+  <div *ngIf="paquetes.length > 0">
+    <h3>Paquetes Turísticos</h3>
+    <div *ngFor="let paquete of paquetes; let i = index" class="producto">
+      <h5>{{ paquete.nombrePaquete }}</h5>
+      <p>Descripción: {{ paquete.serviciosIncluidos }}</p>
+      <p>Precio: ${{ paquete.precio }}</p>
+      <button (click)="eliminarProducto(i, 'paquete')">Eliminar</button>
+    </div>
+  </div>
+  <div *ngIf="!reservaCompletada">
+    <div class="total">
+      <h4>Total: ${{ total }}</h4>
+    </div>
+
+    <!-- Botón de reservar -->
+    <div class="reservar">
+      <button (click)="enviarReserva()">Reservar</button>
+    </div>
+  </div>
+</div>
+<div class="mensaje" *ngIf="reservaCompletada"> <!-- Mostrar mensaje de éxito después de la reserva -->
+  <p>Carrito vacío :c</p>
+</div>

@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
 <div class="filter-container">
-  <h1 class="text-light">Vuelos</h1>
+  <h1 class="text-light">Paquetes</h1>
   <!-- Precio Mínimo -->
   <div class="filter-item">
     <span class="filter-label">Precio Mínimo</span>
@@ -21,7 +21,7 @@
   </div>
 
   <!-- Botón de búsqueda -->
-  <button class="search-button bi bi-search" (click)="buscarPorFiltros()">Buscar Vuelos</button>
+  <button class="search-button bi bi-search" (click)="buscarPorFiltros()">Buscar Paquetes</button>
 
 </div>
 
@@ -30,24 +30,27 @@
 <div class="container mt-4">
   <!-- Resultados -->
   <div class="row">
-    <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let vuelo of vuelos">
-      <div class="card flight-card" (click)="getVuelo(vuelo.id)">
+    <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let paquete of paquetes">
+      <div class="card flight-card" (click)="getPaquete(paquete.id)">
         <img
-          src="https://img.static-af.com/images/media/E56219E9-21C7-4BB0-B7A5F5353A5140D3/"
-          alt="Imagen del vuelo"
+          src="https://img.freepik.com/foto-gratis/pareja-tiro-medio-mochila_23-2148966592.jpg"
+          alt="Imagen del hotel"
           class="card-img-top flight-image">
         <div class="card-body">
-          <h5 class="card-title text-center">{{ vuelo.aerolinea }}</h5>
+          <h5 class="card-title text-center">{{ paquete.nombrePaquete }}</h5>
           <p class="card-text text-center">
-            <strong>Origen:</strong> {{ vuelo.origen }}<br>
-            <strong>Destino:</strong> {{ vuelo.destino }}<br>
-            <strong>Precio:</strong> ${{ vuelo.precio }}
+            <strong>Servicios incluidos:</strong> {{ paquete.serviciosIncluidos }}<br>
+            <strong>Destino:</strong> {{ paquete.destino }}<br>
+            <strong>Precio:</strong> ${{ paquete.precio }}<br>
+            <strong>Fecha de Salida:</strong> {{ paquete.fechaSalida  }}
           </p>
         </div>
       </div>
     </div>
-    <div *ngIf="vuelos.length === 0" class="col-12 text-center">
-      <p>No se encontraron vuelos con los criterios seleccionados.</p>
+    <!-- Mensaje si no hay resultados -->
+    <div *ngIf="paquetes.length == 0" class="col-12 text-center">
+      <p>No se encontraron hoteles con los criterios seleccionados.</p>
     </div>
   </div>
 </div>
+

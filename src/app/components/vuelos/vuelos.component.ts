@@ -1,11 +1,11 @@
-import { HttpClientModule } from '@angular/common/http';
+
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../../common/navbar/navbar.component';
 import { VueloServiceService } from '../../services/vuelo-service.service';
 import { CommonModule } from '@angular/common';
 import { Vuelo } from '../../models/vueloModel';
 import { FormsModule } from '@angular/forms';
-import e from 'express';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vuelos',
@@ -20,7 +20,9 @@ export class VuelosComponent {
   precioMax: number = 100;
   fechaDesde: string = '';
 
-  constructor(private vueloService: VueloServiceService) {
+  constructor(private vueloService: VueloServiceService,
+              private roter: Router
+  ) {
   }
 
   ngOnInit(): void {
@@ -38,8 +40,8 @@ export class VuelosComponent {
     , 500);
   }
 
-  getVuelo(id: number) {
-    this.vueloService.getVuelo(id);
+  getVuelo(id: number): void {
+    this.roter.navigate(['/vuelo', id]);  // Navega a la ruta con el ID del vuelo
   }
 
   convertirFechaConHora(fecha: string): string {
@@ -58,21 +60,31 @@ export class VuelosComponent {
 
   buscarPorFiltros(): void {
     const fechaDesdeConHora = this.convertirFechaConHora(this.fechaDesde);
-    if (this.fechaDesde != '' && this.precioMax && this.precioMin) {
+
+    const tieneFecha = this.fechaDesde.trim().length > 0; // Verifica si hay una fecha válida
+    const tienePrecioMin = this.precioMin !== null && this.precioMin >= 0; // Acepta 0 como válido
+    const tienePrecioMax = this.precioMax !== null && this.precioMax > 0; // Debe ser mayor a 0
+
+    if (tieneFecha && tienePrecioMin && tienePrecioMax) {
+      // Filtro por fecha y precio
       this.vueloService.getVueloByFechaYPrecio(this.precioMin, this.precioMax, fechaDesdeConHora);
-    } else if (this.precioMin && this.precioMax) {
+    } else if (tienePrecioMin && tienePrecioMax) {
+      // Filtro solo por rango de precios
       this.vueloService.getVueloByPrecio(this.precioMin, this.precioMax);
-    }else if (this.fechaDesde != '') {
+    } else if (tieneFecha) {
+      // Filtro solo por fecha
       this.vueloService.getVueloByFecha(fechaDesdeConHora);
-    }else{
+    } else {
+      // Si no hay filtros, cargar todos los vuelos
       this.vueloService.getVuelos();
     }
 
-    // Obtener los vuelos filtrados después de la búsqueda
+    // Actualizar la lista de vuelos después de aplicar filtros
     setTimeout(() => {
       this.vuelos = this.vueloService.obtenerVuelos();
     }, 500);
   }
+
 
 
 

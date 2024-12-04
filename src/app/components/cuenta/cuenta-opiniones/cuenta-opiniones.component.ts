@@ -31,4 +31,5 @@ export class CuentaOpinionesComponent {
       this.resenias = this.opService.obtenerResenias();
     }, 500);
   }
+
 }
